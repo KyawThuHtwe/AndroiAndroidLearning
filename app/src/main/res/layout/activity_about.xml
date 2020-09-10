@@ -9,7 +9,7 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:theme="@style/ThemeOverlay.MaterialComponents.Dark">
+        android:theme="@style/AboutTheme">
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsingToolBarLayout"
             android:layout_width="match_parent"
@@ -25,7 +25,7 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
-                android:src="@drawable/header"
+                android:src="@drawable/learn"
                 android:fitsSystemWindows="true"
                 app:layout_collapseMode="parallax"/>
             <View
@@ -296,6 +296,46 @@
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:src="@drawable/journaldev_logo" />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/dribbble"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginRight="1dp"                    app:cardCornerRadius="10dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginStart="10dp">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:gravity="center"
+                    app:riv_corner_radius="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/dribbble_logo" />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/developer"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginRight="1dp"                    app:cardCornerRadius="10dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginStart="10dp">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/developer_logo" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView

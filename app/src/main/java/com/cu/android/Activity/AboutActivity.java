@@ -35,7 +35,7 @@ public class AboutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        CardView google,youtube,firebase,bhiandroid,stacktips,journaldev,javatpoint;
+        CardView google,youtube,firebase,bhiandroid,stacktips,journaldev,javatpoint,dribbble,developer;
         google=findViewById(R.id.google);
         youtube=findViewById(R.id.youtube);
         firebase=findViewById(R.id.firebase);
@@ -43,6 +43,9 @@ public class AboutActivity extends AppCompatActivity {
         stacktips=findViewById(R.id.stacktips);
         journaldev=findViewById(R.id.journaldev);
         javatpoint=findViewById(R.id.javatpoint);
+        dribbble=findViewById(R.id.dribbble);
+        developer=findViewById(R.id.developer);
+
         google.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,6 +86,18 @@ public class AboutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 gotoPage("www.javatpoint.com");
+            }
+        });
+        dribbble.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoPage("www.dribbble.com");
+            }
+        });
+        developer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoPage(" developer.android.com");
             }
         });
 

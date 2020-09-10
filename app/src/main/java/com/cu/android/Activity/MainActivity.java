@@ -2,6 +2,7 @@ package com.cu.android.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.core.content.ContextCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,7 +12,10 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.cu.android.Adapter.LinkAdapter;
@@ -45,9 +49,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         pagerData=new ArrayList<>();
-        pagerData.add(new PagerData(R.drawable.begain,"Basic"));
+        pagerData.add(new PagerData(R.drawable.basic,"Basic"));
         pagerData.add(new PagerData(R.drawable.beginner,"Beginner"));
         pagerData.add(new PagerData(R.drawable.intermediate,"Intermediate"));
         pagerData.add(new PagerData(R.drawable.library,"Library"));

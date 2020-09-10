@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:id="@+id/custom_link">
     <androidx.cardview.widget.CardView
         android:id="@+id/show"
         android:layout_marginTop="1dp"
@@ -18,11 +18,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <com.makeramen.roundedimageview.RoundedImageView
-                app:riv_corner_radius="100dp"
+                android:padding="8dp"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/header"
-                android:scaleType="centerCrop"/>
+                android:backgroundTint="@color/ic_launcher_background"
+                android:background="@drawable/searchview_background"
+                android:src="@drawable/bhiandroid_logo"
+                android:scaleType="fitXY"
+                tools:ignore="UnusedAttribute" />
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_weight="1"
