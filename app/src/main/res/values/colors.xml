@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#160539</color>
+    <color name="colorPrimaryDark">#160539</color>
+    <color name="colorAccent">#160539</color>
+    <color name="colorSearch">#737375</color>
+    <color name="colorTextPrimary">#212121</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorNote">#160539</color>
+    <color name="colorDarkSemiTransparent">#c6000000</color>
+    <color name="colorFloatingActionButton">#6200EE</color>
+    <color name="color1">#160539</color>
+    <color name="color2">#60220F</color>
+    <color name="color3">#4B1759</color>
+    <color name="color4">#53330B</color>
+    <color name="color5">#18302D</color>
+    <color name="color6">#4E0D25</color>
+</resources>

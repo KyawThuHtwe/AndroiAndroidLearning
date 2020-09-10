@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Android Learning</string>
+    <string name="favorite">Favorite</string>
+    <string name="note">Note</string>
+    <string name="links">Links</string>
+    <string name="share">share</string>
+    <string name="about">About</string>
+    <string name="count">0</string>
+    <string name="name">Name</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="link">Link</string>
+    <string name="delete">Delete</string>
+    <string name="are_you_sure_want_to_delete">Are you sure want to delete?</string>
+    <string name="add_note">Add Note</string>
+    <string name="_7_9_2020">7.9.2020</string>
+    <string name="build_app">Build App</string>
+    <string name="_09750534996">09750534996</string>
+    <string name="phone">Phone</string>
+    <string name="copypaste673_gmail_com">copypaste673@gmail.com</string>
+    <string name="email">Email</string>
+    <string name="kyaw_thu">Kyaw Thu</string>
+    <string name="developer">Developer</string>
+    <string name="category">Category</string>
+    <string name="build_7_9_2020">Build 7.9.2020</string>
+    <string name="credit_web_site_page">Credit Web Site Page</string>
+</resources>

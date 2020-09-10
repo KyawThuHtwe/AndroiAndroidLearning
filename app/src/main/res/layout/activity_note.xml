@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.NoteActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:background="@color/colorNote"
+            android:gravity="center_vertical"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            tools:ignore="UseCompoundDrawables">
+            <ImageView
+                android:id="@+id/back"
+                android:tint="@color/colorWhite"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/ic_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="UseAppTint"
+                android:layout_marginStart="20dp"
+                android:contentDescription="@string/app_name" />
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:textSize="18sp"
+                android:textColor="@color/colorWhite"
+                android:text="@string/note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp" />
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    android:padding="5dp"
+                    android:id="@+id/count"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:text="0"
+                    android:backgroundTint="@color/colorWhite"
+                    android:background="@drawable/about_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorNote" />
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_margin="20dp"
+        android:background="@color/colorFloatingActionButton"
+        android:src="@drawable/ic_add"
+        android:tint="@color/colorWhite"
+        app:backgroundTint="@color/colorFloatingActionButton"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
