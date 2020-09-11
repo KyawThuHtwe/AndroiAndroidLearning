@@ -1,5 +1,6 @@
 package com.cu.android.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,6 +50,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
         final String name=noteData.get(position).getName();
         holder.name.setText(name);
         holder.link.setText(link_url);
+        holder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edit(v,did,name,link_url);
+            }
+        });
         holder.share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +86,44 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
                 return false;
             }
         });
+    }
+    @SuppressLint("SetTextI18n")
+    private void edit(View v, final String did, String name_text, String link_url){
+        try {
+            final AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext(),R.style.AlertDialogTheme);
+            View view = LayoutInflater.from(v.getContext()).inflate(R.layout.dialog_note, (ConstraintLayout) v.findViewById(R.id.dialog_layout));
+            builder.setView(view);
+            final TextView title=view.findViewById(R.id.title);
+            final EditText name = view.findViewById(R.id.name);
+            final EditText link = view.findViewById(R.id.link);
+            title.setText("Edit Note");
+            name.setText(name_text);
+            link.setText(link_url);
+            Button cancel = view.findViewById(R.id.cancel);
+            Button ok = view.findViewById(R.id.add);
+            ok.setText("Update");
+            final AlertDialog dialog = builder.create();
+            dialog.show();
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    name.setText("");
+                    link.setText("");
+                    dialog.dismiss();
+                }
+            });
+            ok.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DatabaseHelper helper=new DatabaseHelper(context);
+                    helper.updateNote(did+"",name.getText()+"",link.getText()+"");
+                    context.startActivity(new Intent(context, NoteActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                    dialog.dismiss();
+                }
+            });
+        }catch (Exception e){
+            Toast.makeText(context,e.getMessage(),Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void deleteConfirm(View v, final String did) {
@@ -118,13 +164,14 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView name,link;
-        ImageView share;
+        ImageView share,edit;
         CardView show;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             this.name=itemView.findViewById(R.id.name);
             this.link=itemView.findViewById(R.id.link);
             this.share=itemView.findViewById(R.id.share);
+            this.edit=itemView.findViewById(R.id.edit);
             this.show=itemView.findViewById(R.id.show);
         }
     }

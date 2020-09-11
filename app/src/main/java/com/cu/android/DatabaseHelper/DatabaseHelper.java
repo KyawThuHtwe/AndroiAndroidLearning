@@ -75,7 +75,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }else {
             return true;
         }
-
+    }
+    public boolean updateNote(String id,String name,String link){
+        SQLiteDatabase database=this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put("NAME",name);
+        contentValues.put("LINK",link);
+        int result=database.update("Note",contentValues,"ID=?",new String[]{id});
+        if(result>0){
+            return true;
+        }else {
+            return false;
+        }
     }
     public Cursor getNote(){
         SQLiteDatabase db=this.getWritableDatabase();

@@ -29,7 +29,22 @@
             android:text="@string/app_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <TextView
+            android:visibility="gone"
+            android:layout_marginTop="200dp"
+            android:id="@+id/internetCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:backgroundTint="@color/colorTextPrimary"
+            android:background="@drawable/searchview_background"
+            android:padding="10dp"
+            android:text="@string/internet_need_for_data_download"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="15sp"
+            tools:ignore="UnusedAttribute" />
     </LinearLayout>
+
     <TextView
         android:layout_margin="50dp"
         android:textColor="@color/colorWhite"

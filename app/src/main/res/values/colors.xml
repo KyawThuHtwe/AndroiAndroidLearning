@@ -15,4 +15,5 @@
     <color name="color4">#53330B</color>
     <color name="color5">#18302D</color>
     <color name="color6">#4E0D25</color>
+    <color name="transparent">@android:color/transparent</color>
 </resources>

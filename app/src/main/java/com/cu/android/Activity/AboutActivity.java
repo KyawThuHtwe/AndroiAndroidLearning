@@ -35,7 +35,7 @@ public class AboutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        CardView google,youtube,firebase,bhiandroid,stacktips,journaldev,javatpoint,dribbble,developer;
+        CardView google,youtube,firebase,bhiandroid,stacktips,journaldev,javatpoint,dribbble,developer,tutorialspoint,androidhive,envato_tuts;
         google=findViewById(R.id.google);
         youtube=findViewById(R.id.youtube);
         firebase=findViewById(R.id.firebase);
@@ -45,7 +45,9 @@ public class AboutActivity extends AppCompatActivity {
         javatpoint=findViewById(R.id.javatpoint);
         dribbble=findViewById(R.id.dribbble);
         developer=findViewById(R.id.developer);
-
+        tutorialspoint=findViewById(R.id.tutorialspoint);
+        androidhive=findViewById(R.id.androidhive);
+        envato_tuts=findViewById(R.id.envato_tuts);
         google.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,32 +98,48 @@ public class AboutActivity extends AppCompatActivity {
         });
         developer.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                gotoPage(" developer.android.com");
+            public void onClick(View v) { gotoPage("developer.android.com");
             }
         });
-
-        Toolbar toolbar=findViewById(R.id.toolbar);
+        androidhive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { gotoPage("www.androidhive.info");
+            }
+        });
+        tutorialspoint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { gotoPage("www.tutorialspoint.com");
+            }
+        });
+        envato_tuts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { gotoPage("tutsplus.com");
+            }
+        });
+        final Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         final CollapsingToolbarLayout collapsingToolbarLayout=findViewById(R.id.collapsingToolBarLayout);
-        Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.header);
+        Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.learn);
         Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onGenerated(@Nullable Palette palette) {
                 if(palette!=null){
-                    collapsingToolbarLayout.setContentScrimColor(palette.getMutedColor(R.color.colorNote));
+                   // collapsingToolbarLayout.setContentScrimColor(palette.getMutedColor(R.attr.colorPrimary));
                 }
+
             }
         });
         TextView email,phone;
         email=findViewById(R.id.email);
         email.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("IntentReset")
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(Intent.ACTION_SENDTO);
                 intent.setData(Uri.parse("mailto:copypaste673@gmail.com"));
+                intent.setType("text/plain");
                 try {
                     startActivity(intent);
                 } catch (android.content.ActivityNotFoundException ex) {

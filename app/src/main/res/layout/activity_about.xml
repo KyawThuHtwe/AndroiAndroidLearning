@@ -9,13 +9,13 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:theme="@style/AboutTheme">
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark">
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsingToolBarLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="@color/colorNote"
+            app:contentScrim="@color/colorPrimary"
             app:expandedTitleMarginStart="15dp"
             app:expandedTitleMarginBottom="20dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
@@ -337,29 +337,96 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/developer_logo" />
             </androidx.cardview.widget.CardView>
-
             <androidx.cardview.widget.CardView
-                android:id="@+id/javatpoint"
+                android:id="@+id/tutorialspoint"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginRight="1dp"                    app:cardCornerRadius="10dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginStart="10dp">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tutorialspoint_logo" />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/envato_tuts"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="1dp"
                 android:layout_marginRight="1dp"
                 app:cardCornerRadius="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp">
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginStart="10dp">
 
                 <com.makeramen.roundedimageview.RoundedImageView
+                    android:gravity="center"
                     android:padding="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/javatpoint_logo" />
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/envato_tuts_logo" />
             </androidx.cardview.widget.CardView>
 
+
         </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/androidhive"
+                    android:layout_margin="1dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp">
 
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/app_name"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/androidhive_logo" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/javatpoint"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginRight="1dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginStart="10dp">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:padding="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/app_name"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/javatpoint_logo" />
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton

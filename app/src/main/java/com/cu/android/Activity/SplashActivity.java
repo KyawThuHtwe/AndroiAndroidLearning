@@ -4,11 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cu.android.DatabaseHelper.DatabaseHelper;
@@ -34,12 +39,24 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        linkReading("basic");
-        linkReading("beginner");
-        linkReading("intermediate");
-        linkReading("library");
-        linkReading("project");
-        linkReading("design");
+        TextView internetCheck=findViewById(R.id.internetCheck);
+        //going();
+        try{
+            DatabaseHelper helper=new DatabaseHelper(this);
+            Cursor cursor=helper.getLink();
+            if(cursor!=null && cursor.getCount()>0){
+                internetCheck.setVisibility(View.GONE);
+                going();
+            }else {
+                checkConnection();
+            }
+
+            helper.close();
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void going(){
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -47,6 +64,29 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         },1000);
+    }
+    public void checkConnection() {
+        ConnectivityManager connectivityManager=(ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo wifi=connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        NetworkInfo  network=connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        TextView internetCheck=findViewById(R.id.internetCheck);
+        assert wifi != null;
+        assert network != null;
+        if (wifi.isConnected()||network.isConnected()){
+            //Internet available
+            linkReading("basic");
+            linkReading("beginner");
+            linkReading("intermediate");
+            linkReading("library");
+            linkReading("project");
+            linkReading("design");
+            going();
+            internetCheck.setVisibility(View.GONE);
+        }
+        else {
+            //Internet is not available
+            internetCheck.setVisibility(View.VISIBLE);
+        }
     }
     public void linkReading(final String type){
         database = FirebaseDatabase.getInstance();

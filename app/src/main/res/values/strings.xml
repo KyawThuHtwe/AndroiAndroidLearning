@@ -24,4 +24,6 @@
     <string name="category">Category</string>
     <string name="build_7_9_2020">Build 7.9.2020</string>
     <string name="credit_web_site_page">Credit Web Site Page</string>
+    <string name="internet_need_for_data_download">Internet need for data download</string>
+    <string name="edit">Edit</string>
 </resources>

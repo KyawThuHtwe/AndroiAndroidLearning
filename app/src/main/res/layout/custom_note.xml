@@ -18,10 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <com.makeramen.roundedimageview.RoundedImageView
-                app:riv_corner_radius="100dp"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/header"
+                android:src="@drawable/notes"
                 android:scaleType="centerCrop"/>
             <LinearLayout
                 android:orientation="vertical"
@@ -54,6 +53,13 @@
                         android:layout_width="0dp"
                         android:layout_height="20dp"
                         tools:ignore="RtlSymmetry" />
+                    <ImageView
+                        android:padding="5dp"
+                        android:contentDescription="@string/edit"
+                        android:id="@+id/edit"
+                        android:src="@drawable/ic_baseline_edit_24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
                     <ImageView
                         android:padding="5dp"
                         android:contentDescription="@string/share"
